@@ -181,7 +181,7 @@ class ArtistForm(Form):
         ]
     )
     phone = StringField(
-        # TODO implement validation logic for state
+        # TODO implement validation logic for phone
         'phone'
     )
     image_link = StringField(
@@ -216,5 +216,10 @@ class ArtistForm(Form):
         # TODO implement enum restriction
         'facebook_link', validators=[URL()]
     )
+
+    image_link = StringField(
+        # TODO implement enum restriction
+        'image_link', validators=[URL()]
+    )    
 
 # TODO IMPLEMENT NEW ARTIST FORM AND NEW SHOW FORM

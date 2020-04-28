@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="fyyur">Fyyur</h2>
+<h3 id="introduction">Introduction</h3>
+<p>Fyyur is a musical venue and artist booking site that facilitates the discovery and bookings of shows between local performing artists and venues. This site lets you list new artists and venues, discover them, and list shows with artists as a venue owner.</p>
+<p>Your job is to build out the data models to power the API endpoints for the Fyyur site by connecting to a PostgreSQL database for storing, querying, and creating information about artists and venues on Fyyur.</p>
+<h3 id="overview">Overview</h3>
+<p>This app is nearly complete. It is only missing one thing… real data! While the views and controllers are defined in this application, it is missing models and model interactions to be able to store retrieve, and update data from a database. By the end of this project, you should have a fully functioning site that is at least capable of doing the following, if not more, using a PostgreSQL database:</p>
+<ul>
+<li>creating new venues, artists, and creating new shows.</li>
+<li>searching for venues and artists.</li>
+<li>learning more about a specific artist or venue.</li>
+</ul>
+<p>We want Fyyur to be the next new platform that artists and musical venues can use to find each other, and discover new music shows. Let's make that happen!</p>
+<h3 id="tech-stack">Tech Stack</h3>
+<p>Our tech stack will include:</p>
+<ul>
+<li><strong>SQLAlchemy ORM</strong> to be our ORM library of choice</li>
+<li><strong>PostgreSQL</strong> as our database of choice</li>
+<li><strong>Python3</strong> and <strong>Flask</strong> as our server language and server framework</li>
+<li><strong>Flask-Migrate</strong> for creating and running schema migrations</li>
+<li><strong>HTML</strong>, <strong>CSS</strong>, and <strong>Javascript</strong> with <a href="https://getbootstrap.com/docs/3.4/customize/">Bootstrap 3</a> for our website's frontend</li>
+</ul>
+<h3 id="main-files-project-structure">Main Files: Project Structure</h3>
+<pre class="hljs"><code><div>├── README.md
+├── app.py *** the main driver of the app. Includes your SQLAlchemy models.
+                  <span class="hljs-string">"python app.py"</span> to run after installing dependences
+├── config.py *** Database URLs, CSRF generation, etc
+├── error.log
+├── forms.py *** Your forms
+├── requirements.txt *** The dependencies we need to install with <span class="hljs-string">"pip3 install -r requirements.txt"</span>
+├── static
+│   ├── css 
+│   ├── font
+│   ├── ico
+│   ├── img
+│   └── js
+└── templates
+    ├── errors
+    ├── forms
+    ├── layouts
+    └── pages
+</div></code></pre>
+<p>Overall:</p>
+<ul>
+<li>Models are located in the <code>MODELS</code> section of <code>app.py</code>.</li>
+<li>Controllers are also located in <code>app.py</code>.</li>
+<li>The web frontend is located in <code>templates/</code>, which builds static assets deployed to the web server at <code>static/</code>.</li>
+<li>Web forms for creating data are located in <code>form.py</code></li>
+</ul>
+<p>Highlight folders:</p>
+<ul>
+<li><code>templates/pages</code> -- (Already complete.) Defines the pages that are rendered to the site. These templates render views based on data passed into the template’s view, in the controllers defined in <code>app.py</code>. These pages successfully represent the data to the user, and are already defined for you.</li>
+<li><code>templates/layouts</code> -- (Already complete.) Defines the layout that a page can be contained in to define footer and header code for a given page.</li>
+<li><code>templates/forms</code> -- (Already complete.) Defines the forms used to create new artists, shows, and venues.</li>
+<li><code>app.py</code> -- (Missing functionality.) Defines routes that match the user’s URL, and controllers which handle data and renders views to the user. This is the main file you will be working on to connect to and manipulate the database and render views with data to the user, based on the URL.</li>
+<li>Models in <code>app.py</code> -- (Missing functionality.) Defines the data models that set up the database tables.</li>
+<li><code>config.py</code> -- (Missing functionality.) Stores configuration variables and instructions, separate from the main application code. This is where you will need to connect to the database.</li>
+</ul>
+<h2 id="instructions">Instructions</h2>
+<ol>
+<li>
+<p>Understand the Project Structure (explained above) and where important files are located.</p>
+</li>
+<li>
+<p>Build and run local development following the Development Setup steps below.</p>
+</li>
+<li>
+<p>Fill in the missing functionality in this application: this application currently pulls in fake data, and needs to now connect to a real database and talk to a real backend.</p>
+</li>
+<li>
+<p>Fill out every <code>TODO</code> section throughout the codebase. We suggest going in order of the following:</p>
+</li>
+<li>
+<p>Connect to a database in <code>config.py</code>. A project submission that uses a local database connection is fine.</p>
+</li>
+<li>
+<p>Using SQLAlchemy, set up normalized models for the objects we support in our web app in the Models section of <code>app.py</code>. Check out the sample pages provided at /artists/1, /venues/1, and /shows/1 for examples of the data we want to model, using all of the learned best practices in database schema design. Implement missing model properties and relationships using database migrations via Flask-Migrate.</p>
+</li>
+<li>
+<p>Implement form submissions for creating new Venues, Artists, and Shows. There should be proper constraints, powering the <code>/create</code> endpoints that serve the create form templates, to avoid duplicate or nonsensical form submissions. Submitting a form should create proper new records in the database.</p>
+</li>
+<li>
+<p>Implement the controllers for listing venues, artists, and shows. Note the structure of the mock data used. We want to keep the structure of the mock data.</p>
+</li>
+<li>
+<p>Implement search, powering the <code>/search</code> endpoints that serve the application's search functionalities.</p>
+</li>
+<li>
+<p>Serve venue and artist detail pages, powering the <code>&lt;venue|artist&gt;/&lt;id&gt;</code> endpoints that power the detail pages.</p>
+</li>
+</ol>
+<h2 id="acceptance-criteria">Acceptance Criteria</h2>
+<ol>
+<li>The web app should be successfully connected to a PostgreSQL database. A local connection to a database on your local computer is fine.</li>
+<li>There should be no use of mock data throughout the app. The data structure of the mock data per controller should be kept unmodified when satisfied by real data.</li>
+<li>The application should behave just as before with mock data, but now uses real data from a real backend server, with real search functionality. For example:</li>
+</ol>
+<ul>
+<li>when a user submits a new artist record, the user should be able to see it populate in /artists, as well as search for the artist by name and have the search return results.</li>
+<li>I should be able to go to the URL <code>/artist/&lt;artist-id&gt;</code> to visit a particular artist’s page using a unique ID per artist, and see real data about that particular artist.</li>
+<li>Venues should continue to be displayed in groups by city and state.</li>
+<li>Search should be allowed to be partial string matching and case-insensitive.</li>
+<li>Past shows versus Upcoming shows should be distinguished in Venue and Artist pages.</li>
+<li>A user should be able to click on the venue for an upcoming show in the Artist's page, and on that Venue's page, see the same show in the Venue Page's upcoming shows section.</li>
+</ul>
+<ol start="4">
+<li>As a fellow developer on this application, I should be able to run <code>flask db migrate</code>, and have my local database (once set up and created) be populated with the right tables to run this application and have it interact with my local postgres server, serving the application's needs completely with real data I can seed my local database with.</li>
+</ol>
+<ul>
+<li>The models should be completed (see TODOs in the <code>Models</code> section of <code>app.py</code>) and model the objects used throughout Fyyur.</li>
+<li>The right <em>type</em> of relationship and parent-child dynamics between models should be accurately identified and fit the needs of this particular application.</li>
+<li>The relationship between the models should be accurately configured, and referential integrity amongst the models should be preserved.</li>
+<li><code>flask db migrate</code> should work, and populate my local postgres database with properly configured tables for this application's objects, including proper columns, column data types, constraints, defaults, and relationships that completely satisfy the needs of this application. The proper type of relationship between venues, artists, and shows should be configured.</li>
+</ul>
+<h5 id="stand-out">Stand Out</h5>
+<p>Looking to go above and beyond? This is the right section for you! Here are some challenges to make your submission stand out:</p>
+<ul>
+<li>Implement artist availability. An artist can list available times that they can be booked. Restrict venues from being able to create shows with artists during a show time that is outside of their availability.</li>
+<li>Show Recent Listed Artists and Recently Listed Venues on the homepage, returning results for Artists and Venues sorting by newly created. Limit to the 10 most recently listed items.</li>
+<li>Implement Search Artists by City and State, and Search Venues by City and State. Searching by &quot;San Francisco, CA&quot; should return all artists or venues in San Francisco, CA.</li>
+</ul>
+<p>Best of luck in your final project! Fyyur depends on you!</p>
+<h3 id="development-setup">Development Setup</h3>
+<p>First, <a href="http://flask.pocoo.org/docs/1.0/installation/#install-flask">install Flask</a> if you haven't already.</p>
+<pre class="hljs"><code><div>$ cd ~
+$ sudo pip3 install Flask
+</div></code></pre>
+<p>To start and run the local development server,</p>
+<ol>
+<li>Initialize and activate a virtualenv:</li>
+</ol>
+<pre class="hljs"><code><div>$ cd YOUR_PROJECT_DIRECTORY_PATH/
+$ virtualenv --no-site-packages env
+$ source env/bin/activate
+</div></code></pre>
+<ol start="2">
+<li>Install the dependencies:</li>
+</ol>
+<pre class="hljs"><code><div>$ pip install -r requirements.txt
+</div></code></pre>
+<ol start="3">
+<li>Run the development server:</li>
+</ol>
+<pre class="hljs"><code><div>$ export FLASK_APP=myapp
+$ export FLASK_ENV=development # enables debug mode
+$ python3 app.py
+</div></code></pre>
+<ol start="4">
+<li>Navigate to Home page <a href="http://localhost:5000">http://localhost:5000</a></li>
+</ol>
+
+</body>
+</html>
