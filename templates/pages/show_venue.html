@@ -5,6 +5,7 @@
 	<div class="col-sm-6">
 		<h1 class="monospace">
 			{{ venue.name }}
+			<a href="/venues/{{ venue.id }}/edit" class="btn btn-primary" role="button">Edit Venue</a>
 		</h1>
 		<p class="subtitle">
 			ID: {{ venue.id }}
@@ -43,7 +44,7 @@
 		{% endif %}
 	</div>
 	<div class="col-sm-6">
-		<img src="{{ venue.image_link }}" alt="Venue Image" />
+		{% if venue.image_link %}<img src="{{ venue.image_link }}" alt="Venue Image" />{% endif %}
 	</div>
 </div>
 <section>
