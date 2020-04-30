@@ -4,7 +4,8 @@
 <div class="row">
 	<div class="col-sm-6">
 		<h1 class="monospace">
-			{{ artist.name }}
+			{{ artist.name }} 
+			<a href="/artists/{{ artist.id }}/edit" class="btn btn-primary" role="button">Edit Artist</a>
 		</h1>
 		<p class="subtitle">
 			ID: {{ artist.id }}
